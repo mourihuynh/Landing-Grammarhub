@@ -1,0 +1,1566 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compass English Grammar Hub - Làm Chủ Cấu Trúc Ngữ Pháp Tiếng Anh</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Plus Jakarta Sans, Inter & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Plus Jakarta Sans', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        compass: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            200: '#c7d2fe',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            900: '#1e1b4b',
+                        },
+                        emerald: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        @keyframes pulseRing {
+            0%, 100% { transform: scale(1); opacity: 0.85; }
+            50% { transform: scale(1.12); opacity: 1; }
+        }
+        @keyframes slideInRight {
+            from { transform: translateX(100%); opacity: 0.4; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes popFade {
+            from { opacity: 0; transform: translateY(8px) scale(0.98); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .animate-pulse-ring { animation: pulseRing 2.6s ease-in-out infinite; }
+        .animate-drawer { animation: slideInRight 0.28s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+        .animate-pop { animation: popFade 0.25s ease-out forwards; }
+
+        .topic-card {
+            transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+        .topic-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 28px -8px rgba(79, 70, 229, 0.14);
+        }
+
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-compass-600 selection:text-white">
+
+    <!-- ==================== 1. STICKY HEADER ==================== -->
+    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200/80 transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 md:h-20">
+                <!-- Brand Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-compass-600 to-indigo-800 flex items-center justify-center text-white shadow-md shadow-compass-600/25 group-hover:scale-105 transition-transform">
+                        <svg class="w-7 h-7" viewBox="0 0 36 36" fill="none">
+                            <circle cx="18" cy="18" r="13" stroke="white" stroke-width="2" stroke-opacity="0.35"/>
+                            <path d="M18 3V6M18 30V33M3 18H6M30 18H33" stroke="#FBBF24" stroke-width="2.2" stroke-linecap="round"/>
+                            <polygon points="18,9 21.5,18 18,27 14.5,18" fill="white"/>
+                            <polygon points="18,9 21.5,18 14.5,18" fill="#FBBF24"/>
+                            <circle cx="18" cy="18" r="2" fill="#1E1B4B"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <span class="font-heading font-extrabold text-lg sm:text-xl tracking-tight text-slate-900">
+                                Compass <span class="text-compass-600">English</span>
+                            </span>
+                            <span class="hidden sm:inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-100 text-emerald-700">
+                                Grammar Hub
+                            </span>
+                        </div>
+                        <span class="hidden sm:block text-[11px] font-semibold text-slate-500 -mt-0.5">Tư duy Cấu trúc • Tự chủ Ngữ pháp</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex items-center gap-7 text-sm font-semibold text-slate-600">
+                    <a href="#lego-grammar" class="hover:text-compass-600 transition-colors">Tại sao học cấu trúc?</a>
+                    <a href="#ban-do-15" class="hover:text-compass-600 transition-colors flex items-center gap-1.5">
+                        Bản đồ 15 Chuyên đề
+                        <span class="px-2 py-0.5 text-[10px] font-bold bg-amber-100 text-amber-700 rounded-full">A1–C2</span>
+                    </a>
+                    <a href="#phong-lab" class="hover:text-compass-600 transition-colors">Phòng Lab Lắp Ghép Câu</a>
+                    <a href="#lo-trinh" class="hover:text-compass-600 transition-colors">Lộ trình 3 Bước</a>
+                </nav>
+
+                <!-- CTA & Mobile Menu Toggle -->
+                <div class="flex items-center gap-2.5">
+                    <a href="#ban-do-15" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-compass-600 hover:bg-compass-700 text-white text-xs sm:text-sm font-bold shadow-sm shadow-compass-600/20 transition-all active:scale-95">
+                        <i data-lucide="compass" class="w-4 h-4"></i>
+                        <span>Khám phá 15 Chuyên đề</span>
+                    </a>
+                    <button id="mobile-menu-btn" type="button" aria-label="Mở menu" class="lg:hidden p-2.5 rounded-xl text-slate-600 hover:bg-slate-100 transition-colors">
+                        <i data-lucide="menu" class="w-5 h-5"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-4 space-y-1 shadow-lg">
+            <a href="#lego-grammar" class="mobile-nav-link block px-3 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:bg-compass-50 hover:text-compass-600">Tại sao học cấu trúc?</a>
+            <a href="#ban-do-15" class="mobile-nav-link block px-3 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:bg-compass-50 hover:text-compass-600">Bản đồ 15 Chuyên đề (A1–C2)</a>
+            <a href="#phong-lab" class="mobile-nav-link block px-3 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:bg-compass-50 hover:text-compass-600">Phòng Lab Lắp Ghép Câu</a>
+            <a href="#lo-trinh" class="mobile-nav-link block px-3 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:bg-compass-50 hover:text-compass-600">Lộ trình 3 Bước</a>
+        </div>
+    </header>
+
+    <!-- ==================== 2. HERO SECTION + INTERACTIVE SENTENCE DECODER ==================== -->
+    <section class="relative overflow-hidden bg-gradient-to-b from-compass-50/90 via-white to-slate-50 pt-10 pb-16 lg:pt-16 lg:pb-24 border-b border-slate-200/70">
+        <!-- Decorative Ambient Glows -->
+        <div class="absolute inset-0 pointer-events-none overflow-hidden">
+            <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-compass-200/40 blur-3xl"></div>
+            <div class="absolute top-36 -left-24 w-80 h-80 rounded-full bg-emerald-200/30 blur-3xl"></div>
+        </div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+                <!-- Left Copy (Concise & Punchy) -->
+                <div class="lg:col-span-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-compass-200 shadow-2xs text-compass-700 text-xs sm:text-sm font-bold mb-5">
+                        <i data-lucide="blocks" class="w-4 h-4 text-amber-500"></i>
+                        Compass English • Hệ Thống Hóa Ngữ Pháp
+                    </div>
+
+                    <h1 class="font-heading text-3xl sm:text-5xl lg:text-[48px] font-extrabold text-slate-900 tracking-tight leading-[1.15] mb-5">
+                        Ngữ pháp Tiếng Anh: <span class="text-rose-500">Không học vẹt.</span> Chỉ cần hiểu <span class="text-transparent bg-clip-text bg-gradient-to-r from-compass-600 to-emerald-600">Công thức Cấu trúc.</span>
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-slate-600 font-medium max-w-xl mx-auto lg:mx-0 mb-8">
+                        Nắm trọn 15 quy luật cốt lõi qua sơ đồ trực quan & khối lắp ghép logic. Tự tin đặt câu chuẩn xác mọi tình huống mà không cần ghi nhớ máy móc.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5">
+                        <a href="#ban-do-15" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-2xl bg-compass-600 hover:bg-compass-700 text-white font-bold text-base shadow-lg shadow-compass-600/25 transition-all hover:-translate-y-0.5">
+                            <i data-lucide="map" class="w-5 h-5"></i>
+                            Mở Bản đồ 15 Chuyên đề
+                        </a>
+                        <a href="#phong-lab" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-2xl bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 font-bold text-base shadow-2xs transition-all">
+                            <i data-lucide="puzzle" class="w-5 h-5 text-emerald-600"></i>
+                            Thử Lắp Ghép Câu
+                        </a>
+                    </div>
+
+                    <!-- 3 Compact Visual Metrics -->
+                    <div class="mt-9 grid grid-cols-3 gap-3 max-w-md mx-auto lg:mx-0">
+                        <div class="bg-white/90 border border-slate-200/80 rounded-2xl p-3 text-center shadow-2xs">
+                            <div class="font-heading font-extrabold text-xl sm:text-2xl text-compass-600">15</div>
+                            <div class="text-xs font-semibold text-slate-500">Chuyên đề gốc</div>
+                        </div>
+                        <div class="bg-white/90 border border-slate-200/80 rounded-2xl p-3 text-center shadow-2xs">
+                            <div class="font-heading font-extrabold text-xl sm:text-2xl text-emerald-600">A1–C2</div>
+                            <div class="text-xs font-semibold text-slate-500">Lộ trình liền mạch</div>
+                        </div>
+                        <div class="bg-white/90 border border-slate-200/80 rounded-2xl p-3 text-center shadow-2xs">
+                            <div class="font-heading font-extrabold text-xl sm:text-2xl text-amber-500">100%</div>
+                            <div class="text-xs font-semibold text-slate-500">Sơ đồ hóa trực quan</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Interactive Widget: "BỘ GIẢI MÃ CÂU" (Timeline + Structure Toggle) -->
+                <div class="lg:col-span-6">
+                    <div class="bg-white rounded-3xl p-5 sm:p-7 shadow-xl shadow-slate-200/80 border border-slate-200/80">
+                        <!-- Top Switcher Bar -->
+                        <div class="flex flex-wrap items-center justify-between gap-2 bg-slate-900 text-white rounded-2xl p-3.5 mb-5">
+                            <div class="flex items-center gap-2">
+                                <span class="w-2.5 h-2.5 rounded-full bg-amber-400 animate-pulse"></span>
+                                <span class="font-heading font-bold text-xs sm:text-sm tracking-wide uppercase">Bộ Giải Mã Cấu Trúc</span>
+                            </div>
+                            <div class="flex items-center gap-1.5 bg-slate-800 p-1 rounded-xl">
+                                <button type="button" id="hero-mode-tense" onclick="setHeroDecoderMode('tense')"
+                                    class="px-3 py-1 rounded-lg text-xs font-bold bg-compass-600 text-white transition-all cursor-pointer">
+                                    Dòng Thời Gian
+                                </button>
+                                <button type="button" id="hero-mode-voice" onclick="setHeroDecoderMode('voice')"
+                                    class="px-3 py-1 rounded-lg text-xs font-bold text-slate-300 hover:text-white transition-all cursor-pointer">
+                                    Chủ ↔ Bị động
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Interactive Toggle Pills -->
+                        <div id="hero-variant-tabs" class="grid grid-cols-2 gap-2.5 mb-5">
+                            <!-- Injected by JS -->
+                        </div>
+
+                        <!-- Dynamic SVG Timeline / Structure Diagram -->
+                        <div class="bg-slate-50 rounded-2xl p-4 border border-slate-200/80 mb-5">
+                            <div id="hero-svg-stage" class="w-full h-36 flex items-center justify-center">
+                                <!-- Dynamic SVG injected by JS -->
+                            </div>
+                        </div>
+
+                        <!-- Sentence Breakdown Blocks + Audio -->
+                        <div id="hero-sentence-box" class="bg-indigo-50/60 rounded-2xl p-4 border border-indigo-200/80">
+                            <!-- Dynamic blocks injected by JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 3. SECTION 1: LEGO GRAMMAR & 4 BENEFITS ==================== -->
+    <section id="lego-grammar" class="py-16 sm:py-20 bg-white border-b border-slate-200/70">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-xs font-bold uppercase tracking-widest text-compass-600 bg-compass-50 px-3.5 py-1.5 rounded-full">Tư duy Khối Xếp Hình</span>
+                <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">
+                    Lego Grammar: Lắp Khối Tạo Câu Chuẩn
+                </h2>
+                <p class="text-sm sm:text-base text-slate-500 mt-2">
+                    Mọi câu tiếng Anh phức tạp đều được ghép từ <strong>Khối Lõi (S + V + O)</strong> cộng thêm các khối mở rộng chức năng.
+                </p>
+            </div>
+
+            <!-- Interactive Lego Expansion Visual Stage -->
+            <div class="bg-slate-50 rounded-3xl p-6 sm:p-9 border border-slate-200/90 mb-14">
+                <!-- Toggle Lego Add-on Blocks -->
+                <div class="flex flex-wrap items-center justify-center gap-2.5 mb-7">
+                    <span class="text-xs font-bold uppercase tracking-wider text-slate-400 mr-1">Bấm bật/tắt khối mở rộng:</span>
+                    <button type="button" id="lego-btn-tense" onclick="toggleLegoBlock('tense')"
+                        class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-indigo-600 text-white shadow-xs transition-all cursor-pointer">
+                        <span class="w-2.5 h-2.5 rounded-full bg-white"></span>
+                        + Khối Thì (Hoàn thành)
+                    </button>
+                    <button type="button" id="lego-btn-relative" onclick="toggleLegoBlock('relative')"
+                        class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-emerald-600 text-white shadow-xs transition-all cursor-pointer">
+                        <span class="w-2.5 h-2.5 rounded-full bg-white"></span>
+                        + Mệnh đề quan hệ
+                    </button>
+                    <button type="button" id="lego-btn-connector" onclick="toggleLegoBlock('connector')"
+                        class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-amber-500 text-white shadow-xs transition-all cursor-pointer">
+                        <span class="w-2.5 h-2.5 rounded-full bg-white"></span>
+                        + Liên từ mục đích
+                    </button>
+                </div>
+
+                <!-- Dynamic SVG Lego Pipeline -->
+                <div id="lego-visual-pipeline" class="flex flex-wrap items-center justify-center gap-3 sm:gap-4 py-4">
+                    <!-- Rendered dynamically by JS -->
+                </div>
+
+                <!-- Live Assembled Output Sentence -->
+                <div class="mt-6 pt-5 border-t border-slate-200/80 flex flex-col sm:flex-row items-center justify-between gap-4 bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-2xs">
+                    <div class="text-center sm:text-left">
+                        <div class="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1">Câu hoàn chỉnh sau khi lắp khối</div>
+                        <div id="lego-output-sentence" class="font-heading font-bold text-base sm:text-xl text-slate-900"></div>
+                        <div id="lego-output-meaning" class="text-xs sm:text-sm text-slate-500 mt-1"></div>
+                    </div>
+                    <button type="button" onclick="speakLegoSentence()"
+                        class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-compass-600 hover:bg-compass-700 text-white text-xs sm:text-sm font-bold shadow-sm transition-colors cursor-pointer shrink-0">
+                        <i data-lucide="volume-2" class="w-4 h-4"></i>
+                        <span>Nghe câu</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 4 Visual Benefit Cards (Large SVG Icon + Short Title + 1-Line Caption) -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                <!-- Benefit 1 -->
+                <div class="bg-slate-50/70 hover:bg-white p-6 rounded-3xl border border-slate-200/80 hover:border-compass-300 shadow-2xs hover:shadow-lg transition-all text-center">
+                    <div class="w-20 h-20 mx-auto mb-4 rounded-3xl bg-indigo-100/80 flex items-center justify-center">
+                        <svg class="w-12 h-12" viewBox="0 0 48 48" fill="none">
+                            <rect x="8" y="8" width="24" height="32" rx="4" fill="#4F46E5"/>
+                            <path d="M14 16H26M14 22H26M14 28H21" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+                            <circle cx="33" cy="33" r="8" fill="#FBBF24" stroke="white" stroke-width="2.5"/>
+                            <path d="M38.5 38.5L43 43" stroke="#1E1B4B" stroke-width="3" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-heading font-bold text-lg text-slate-900 mb-1.5">Đọc hiểu sâu</h3>
+                    <p class="text-xs sm:text-sm text-slate-500">Tách mệnh đề tức thì, giải mã gọn câu dài học thuật.</p>
+                </div>
+
+                <!-- Benefit 2 -->
+                <div class="bg-slate-50/70 hover:bg-white p-6 rounded-3xl border border-slate-200/80 hover:border-emerald-300 shadow-2xs hover:shadow-lg transition-all text-center">
+                    <div class="w-20 h-20 mx-auto mb-4 rounded-3xl bg-emerald-100/80 flex items-center justify-center">
+                        <svg class="w-12 h-12" viewBox="0 0 48 48" fill="none">
+                            <rect x="10" y="10" width="28" height="28" rx="6" fill="#059669"/>
+                            <path d="M17 24L22 29L32 19" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-heading font-bold text-lg text-slate-900 mb-1.5">Viết chuẩn xác</h3>
+                    <p class="text-xs sm:text-sm text-slate-500">Xóa bỏ lỗi chia thì, hòa hợp chủ-vị và sai trật tự từ.</p>
+                </div>
+
+                <!-- Benefit 3 -->
+                <div class="bg-slate-50/70 hover:bg-white p-6 rounded-3xl border border-slate-200/80 hover:border-amber-300 shadow-2xs hover:shadow-lg transition-all text-center">
+                    <div class="w-20 h-20 mx-auto mb-4 rounded-3xl bg-amber-100/80 flex items-center justify-center">
+                        <svg class="w-12 h-12" viewBox="0 0 48 48" fill="none">
+                            <path d="M12 26V22C12 15.3726 17.3726 10 24 10C30.6274 10 36 15.3726 36 22V26" stroke="#D97706" stroke-width="3.5" stroke-linecap="round"/>
+                            <rect x="9" y="24" width="6" height="12" rx="3" fill="#F59E0B"/>
+                            <rect x="33" y="24" width="6" height="12" rx="3" fill="#F59E0B"/>
+                            <path d="M19 30L22 25L25 33L28 27L30 30" stroke="#1E1B4B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-heading font-bold text-lg text-slate-900 mb-1.5">Nghe bắt ý chính</h3>
+                    <p class="text-xs sm:text-sm text-slate-500">Nhận diện mốc thời gian & hàm ý giả định khi nghe nhanh.</p>
+                </div>
+
+                <!-- Benefit 4 -->
+                <div class="bg-slate-50/70 hover:bg-white p-6 rounded-3xl border border-slate-200/80 hover:border-rose-300 shadow-2xs hover:shadow-lg transition-all text-center">
+                    <div class="w-20 h-20 mx-auto mb-4 rounded-3xl bg-rose-100/80 flex items-center justify-center">
+                        <svg class="w-12 h-12" viewBox="0 0 48 48" fill="none">
+                            <path d="M10 14C10 11.7909 11.7909 10 14 10H34C36.2091 10 38 11.7909 38 14V28C38 30.2091 36.2091 32 34 32H20L12 38V32H14C11.7909 32 10 30.2091 10 28V14Z" fill="#E11D48"/>
+                            <circle cx="19" cy="21" r="2" fill="white"/>
+                            <circle cx="24" cy="21" r="2" fill="white"/>
+                            <circle cx="29" cy="21" r="2" fill="white"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-heading font-bold text-lg text-slate-900 mb-1.5">Giao tiếp tự tin</h3>
+                    <p class="text-xs sm:text-sm text-slate-500">Phản xạ đặt câu tự nhiên theo mẫu, không dịch từng chữ.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 4. SECTION 2: BẢN ĐỒ 15 CHUYÊN ĐỀ NGỮ PHÁP (A1 -> C2) ==================== -->
+    <section id="ban-do-15" class="py-16 sm:py-20 bg-slate-50 border-b border-slate-200/70">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <span class="text-xs font-bold uppercase tracking-widest text-emerald-600 bg-emerald-50 px-3.5 py-1.5 rounded-full">Bản đồ Toàn diện A1 → C2</span>
+                <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3 mb-2">
+                    15 Chuyên Đề Ngữ Pháp Cốt Lõi
+                </h2>
+                <p class="text-sm sm:text-base text-slate-500">
+                    Bấm vào từng thẻ chuyên đề để mở <strong>Công thức cốt lõi, Sơ đồ SVG, Audio ví dụ & Mẹo nhớ 1 dòng</strong>.
+                </p>
+            </div>
+
+            <!-- Filter & Search Controls -->
+            <div class="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3.5 bg-white p-3 rounded-2xl border border-slate-200/90 shadow-2xs mb-8">
+                <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-1 md:pb-0" role="tablist">
+                    <button type="button" id="lvl-tab-all" onclick="filterTopicsByLevel('all')"
+                        class="lvl-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-compass-600 text-white shadow-2xs transition-all whitespace-nowrap cursor-pointer">
+                        Tất cả (15)
+                    </button>
+                    <button type="button" id="lvl-tab-basic" onclick="filterTopicsByLevel('basic')"
+                        class="lvl-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-bold text-slate-600 hover:bg-slate-100 transition-all whitespace-nowrap cursor-pointer">
+                        Nền tảng A1–A2 (5)
+                    </button>
+                    <button type="button" id="lvl-tab-inter" onclick="filterTopicsByLevel('inter')"
+                        class="lvl-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-bold text-slate-600 hover:bg-slate-100 transition-all whitespace-nowrap cursor-pointer">
+                        Trung cấp B1–B2 (7)
+                    </button>
+                    <button type="button" id="lvl-tab-adv" onclick="filterTopicsByLevel('adv')"
+                        class="lvl-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-bold text-slate-600 hover:bg-slate-100 transition-all whitespace-nowrap cursor-pointer">
+                        Nâng cao C1–C2 (3)
+                    </button>
+                </div>
+
+                <!-- Search Input -->
+                <div class="relative w-full md:w-72">
+                    <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none"></i>
+                    <input id="topic-search-input" type="text" oninput="handleTopicSearch(this.value)"
+                        placeholder="Tìm thì, bị động, đảo ngữ..."
+                        class="w-full pl-9 pr-8 py-2 rounded-xl bg-slate-50 border border-slate-200 focus:bg-white focus:border-compass-500 text-sm text-slate-800 placeholder-slate-400 outline-none transition-all">
+                    <button id="topic-clear-btn" type="button" onclick="clearTopicSearch()" aria-label="Xóa tìm kiếm"
+                        class="hidden absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 cursor-pointer">
+                        <i data-lucide="x" class="w-4 h-4"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 15 Topics Grid -->
+            <div id="topics-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                <!-- Injected by JS -->
+            </div>
+
+            <!-- Empty Search State -->
+            <div id="topics-empty" class="hidden text-center py-14 bg-white rounded-3xl border border-slate-200">
+                <p class="font-heading font-bold text-base text-slate-800 mb-2">Không tìm thấy chuyên đề phù hợp</p>
+                <button type="button" onclick="resetTopicFilters()" class="px-4 py-2 rounded-xl bg-compass-600 text-white text-xs font-bold hover:bg-compass-700 cursor-pointer">
+                    Hiển thị toàn bộ 15 chuyên đề
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 5. SECTION 3: INTERACTIVE GRAMMAR LAB ==================== -->
+    <section id="phong-lab" class="py-16 sm:py-20 bg-white border-b border-slate-200/70">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <span class="text-xs font-bold uppercase tracking-widest text-amber-600 bg-amber-50 px-3.5 py-1.5 rounded-full">Thực Hành Tương Tác</span>
+                <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3 mb-2">
+                    Phòng Lab Lắp Ghép Câu
+                </h2>
+                <p class="text-sm sm:text-base text-slate-500">
+                    Bấm chọn từng mảnh ghép theo đúng trật tự công thức để hoàn thiện câu chuẩn ngữ pháp.
+                </p>
+            </div>
+
+            <div class="bg-slate-900 text-white rounded-3xl p-6 sm:p-8 shadow-2xl border border-slate-800">
+                <!-- Challenge Selector Tabs -->
+                <div class="flex flex-wrap items-center justify-between gap-3 pb-5 mb-6 border-b border-slate-800">
+                    <div class="flex items-center gap-2 overflow-x-auto no-scrollbar">
+                        <button type="button" id="lab-tab-0" onclick="selectLabChallenge(0)"
+                            class="lab-tab px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-compass-600 text-white transition-all whitespace-nowrap cursor-pointer">
+                            1. Chuyển đổi Thì
+                        </button>
+                        <button type="button" id="lab-tab-1" onclick="selectLabChallenge(1)"
+                            class="lab-tab px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-slate-800 text-slate-300 hover:text-white transition-all whitespace-nowrap cursor-pointer">
+                            2. Mệnh đề Quan hệ
+                        </button>
+                        <button type="button" id="lab-tab-2" onclick="selectLabChallenge(2)"
+                            class="lab-tab px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-slate-800 text-slate-300 hover:text-white transition-all whitespace-nowrap cursor-pointer">
+                            3. Đảo ngữ Nhấn mạnh
+                        </button>
+                    </div>
+                    <span id="lab-formula-pill" class="font-mono text-xs font-bold px-3 py-1 rounded-lg bg-amber-400/15 text-amber-300 border border-amber-400/30">
+                        S + have/has + V3 + since + Mốc QK
+                    </span>
+                </div>
+
+                <!-- Challenge Prompt -->
+                <div class="mb-5">
+                    <div class="text-xs font-bold uppercase tracking-wider text-compass-300 mb-1" id="lab-challenge-tag">Thử thách 1 / 3 • Hoàn thành tiếp diễn / Hiện tại hoàn thành</div>
+                    <h3 id="lab-challenge-prompt" class="font-heading font-bold text-lg sm:text-xl text-white"></h3>
+                </div>
+
+                <!-- Assembled Slots -->
+                <div class="mb-5">
+                    <div class="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-2">Khung lắp ghép của bạn (Bấm vào khối để gỡ ra)</div>
+                    <div id="lab-assembly-slot" class="min-h-[64px] p-3.5 rounded-2xl bg-slate-800/90 border-2 border-dashed border-slate-600 flex flex-wrap items-center gap-2">
+                        <span class="text-xs text-slate-400 italic">Bấm các mảnh ghép bên dưới để xếp thành câu...</span>
+                    </div>
+                </div>
+
+                <!-- Available Blocks Pool -->
+                <div class="mb-6">
+                    <div class="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-2">Kho mảnh ghép</div>
+                    <div id="lab-blocks-pool" class="flex flex-wrap gap-2.5">
+                        <!-- Injected by JS -->
+                    </div>
+                </div>
+
+                <!-- Feedback Banner -->
+                <div id="lab-feedback-box" class="hidden mb-5 p-4 rounded-2xl border text-xs sm:text-sm leading-relaxed"></div>
+
+                <!-- Action Buttons -->
+                <div class="flex flex-wrap items-center justify-between gap-3">
+                    <div class="flex items-center gap-2.5">
+                        <button type="button" onclick="checkLabAssembly()"
+                            class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-extrabold text-xs sm:text-sm shadow-md transition-all cursor-pointer">
+                            <i data-lucide="check-circle-2" class="w-4 h-4"></i>
+                            <span>Kiểm tra cấu trúc</span>
+                        </button>
+                        <button type="button" onclick="resetCurrentLab()"
+                            class="inline-flex items-center gap-1.5 px-4 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-xs sm:text-sm transition-colors cursor-pointer">
+                            <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
+                            <span>Xếp lại</span>
+                        </button>
+                    </div>
+
+                    <button type="button" onclick="nextLabChallenge()"
+                        class="inline-flex items-center gap-1.5 px-4 py-3 rounded-xl bg-compass-600 hover:bg-compass-500 text-white font-bold text-xs sm:text-sm transition-colors cursor-pointer">
+                        <span>Thử thách kế tiếp</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 6. SECTION 4: LỘ TRÌNH 3 BƯỚC TỰ CHỦ NGỮ PHÁP ==================== -->
+    <section id="lo-trinh" class="py-16 sm:py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-xs font-bold uppercase tracking-widest text-compass-600 bg-compass-50 px-3.5 py-1.5 rounded-full">Phương pháp Compass English</span>
+                <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">
+                    Lộ Trình 3 Bước Tự Chủ Ngữ Pháp
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 relative">
+                <!-- Step 1 -->
+                <div class="bg-white rounded-3xl p-7 border border-slate-200/90 shadow-2xs text-center relative group hover:border-compass-400 transition-all">
+                    <span class="inline-block px-3.5 py-1 rounded-full bg-compass-600 text-white font-heading font-extrabold text-xs mb-5">Bước 01</span>
+                    <div class="w-20 h-20 mx-auto rounded-3xl bg-compass-50 flex items-center justify-center mb-5 group-hover:scale-105 transition-transform">
+                        <svg class="w-12 h-12" viewBox="0 0 48 48" fill="none">
+                            <rect x="8" y="14" width="14" height="20" rx="3" fill="#4F46E5"/>
+                            <rect x="26" y="10" width="14" height="12" rx="3" fill="#FBBF24"/>
+                            <rect x="26" y="26" width="14" height="12" rx="3" fill="#10B981"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-heading font-extrabold text-xl text-slate-900 mb-2">Nhận diện Khối</h3>
+                    <p class="text-sm text-slate-500">Nắm công thức cốt lõi & sơ đồ thời gian của từng chuyên đề, tuyệt đối không học thuộc lòng vẹt.</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="bg-white rounded-3xl p-7 border border-slate-200/90 shadow-2xs text-center relative group hover:border-emerald-400 transition-all">
+                    <span class="inline-block px-3.5 py-1 rounded-full bg-emerald-600 text-white font-heading font-extrabold text-xs mb-5">Bước 02</span>
+                    <div class="w-20 h-20 mx-auto rounded-3xl bg-emerald-50 flex items-center justify-center mb-5 group-hover:scale-105 transition-transform">
+                        <svg class="w-12 h-12" viewBox="0 0 48 48" fill="none">
+                            <path d="M12 24H36" stroke="#059669" stroke-width="4" stroke-linecap="round"/>
+                            <rect x="8" y="16" width="12" height="16" rx="4" fill="#10B981"/>
+                            <rect x="28" y="16" width="12" height="16" rx="4" fill="#4F46E5"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-heading font-extrabold text-xl text-slate-900 mb-2">Lắp ghép Thực chiến</h3>
+                    <p class="text-sm text-slate-500">Tự tay xếp khối câu trong Phòng Lab và đối chiếu ví dụ chuẩn ngữ cảnh thực tế.</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="bg-white rounded-3xl p-7 border border-slate-200/90 shadow-2xs text-center relative group hover:border-amber-400 transition-all">
+                    <span class="inline-block px-3.5 py-1 rounded-full bg-amber-500 text-white font-heading font-extrabold text-xs mb-5">Bước 03</span>
+                    <div class="w-20 h-20 mx-auto rounded-3xl bg-amber-50 flex items-center justify-center mb-5 group-hover:scale-105 transition-transform">
+                        <svg class="w-12 h-12" viewBox="0 0 48 48" fill="none">
+                            <circle cx="24" cy="24" r="14" stroke="#F59E0B" stroke-width="3.5"/>
+                            <path d="M24 15V24L30 28" stroke="#1E1B4B" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-heading font-extrabold text-xl text-slate-900 mb-2">Phản xạ Tự nhiên</h3>
+                    <p class="text-sm text-slate-500">Nghe lặp lại mẫu câu chuẩn để hình thành phản xạ nói và viết đúng ngay lần đầu.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 7. FOOTER ==================== -->
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-slate-800">
+                <a href="#" class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-compass-600 flex items-center justify-center text-white">
+                        <svg class="w-6 h-6" viewBox="0 0 36 36" fill="none">
+                            <circle cx="18" cy="18" r="13" stroke="white" stroke-width="2" stroke-opacity="0.4"/>
+                            <polygon points="18,9 21.5,18 18,27 14.5,18" fill="white"/>
+                            <polygon points="18,9 21.5,18 14.5,18" fill="#FBBF24"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="font-heading font-extrabold text-xl text-white">Compass <span class="text-compass-400">English</span></span>
+                        <p class="text-xs text-emerald-400 font-semibold">Grammar Hub • Làm chủ cấu trúc ngữ pháp từ gốc</p>
+                    </div>
+                </a>
+
+                <div class="flex flex-wrap justify-center gap-6 text-sm font-semibold">
+                    <a href="#lego-grammar" class="hover:text-white transition-colors">Lego Grammar</a>
+                    <a href="#ban-do-15" class="hover:text-white transition-colors">15 Chuyên đề</a>
+                    <a href="#phong-lab" class="hover:text-white transition-colors">Phòng Lab</a>
+                    <a href="#lo-trinh" class="hover:text-white transition-colors">Lộ trình 3 Bước</a>
+                </div>
+            </div>
+
+            <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
+                <p>© 2026 Compass English. Nền tảng tự chủ phát âm & ngữ pháp tiếng Anh trực quan.</p>
+                <p class="font-mono text-slate-400">Structure First • Zero Rote Learning</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== TOPIC DETAIL SLIDE-OVER DRAWER ==================== -->
+    <div id="topic-drawer-backdrop" class="fixed inset-0 z-50 hidden bg-slate-950/60 backdrop-blur-2xs flex justify-end" role="dialog" aria-modal="true" aria-labelledby="drawer-topic-title">
+        <div class="w-full max-w-xl bg-white h-full overflow-y-auto shadow-2xl border-l border-slate-200 p-5 sm:p-7 flex flex-col justify-between animate-drawer">
+            <div>
+                <!-- Drawer Top Header -->
+                <div class="flex items-start justify-between gap-4 pb-5 border-b border-slate-100">
+                    <div>
+                        <div class="flex items-center gap-2 mb-1.5">
+                            <span id="drawer-number" class="font-mono text-xs font-extrabold px-2.5 py-0.5 rounded-lg bg-compass-600 text-white">#01</span>
+                            <span id="drawer-level" class="font-mono text-xs font-bold px-2.5 py-0.5 rounded-lg bg-amber-100 text-amber-800">A1–B2</span>
+                        </div>
+                        <h3 id="drawer-topic-title" class="font-heading font-extrabold text-xl sm:text-2xl text-slate-900">Tenses (12 Thì động từ)</h3>
+                        <p id="drawer-topic-sub" class="text-xs sm:text-sm text-slate-500 mt-0.5">Định vị hành động trên trục thời gian Quá khứ – Hiện tại – Tương lai</p>
+                    </div>
+                    <button type="button" onclick="closeTopicDrawer()" aria-label="Đóng bảng xem nhanh"
+                        class="p-2.5 rounded-xl bg-slate-100 hover:bg-rose-100 text-slate-600 hover:text-rose-600 transition-colors cursor-pointer shrink-0">
+                        <i data-lucide="x" class="w-5 h-5"></i>
+                    </button>
+                </div>
+
+                <!-- 1. Formula Block -->
+                <div class="mt-5">
+                    <div class="text-[11px] font-bold uppercase tracking-wider text-compass-600 mb-2 flex items-center gap-1.5">
+                        <i data-lucide="function-square" class="w-4 h-4"></i>
+                        Công thức cốt lõi (Formula Block)
+                    </div>
+                    <div id="drawer-formula" class="bg-slate-900 text-amber-300 font-mono text-xs sm:text-sm font-bold p-4 rounded-2xl border border-slate-800 leading-relaxed">
+                        <!-- Formula HTML -->
+                    </div>
+                </div>
+
+                <!-- 2. Visual SVG Diagram -->
+                <div class="mt-5">
+                    <div class="text-[11px] font-bold uppercase tracking-wider text-emerald-600 mb-2 flex items-center gap-1.5">
+                        <i data-lucide="git-branch" class="w-4 h-4"></i>
+                        Sơ đồ minh họa trực quan
+                    </div>
+                    <div id="drawer-svg-box" class="bg-slate-50 rounded-2xl p-4 border border-slate-200/90 flex items-center justify-center">
+                        <!-- Dynamic SVG Diagram -->
+                    </div>
+                </div>
+
+                <!-- 3. Standard Example + Audio -->
+                <div class="mt-5">
+                    <div class="text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-2 flex items-center gap-1.5">
+                        <i data-lucide="volume-2" class="w-4 h-4 text-compass-600"></i>
+                        Ví dụ chuẩn ngữ cảnh
+                    </div>
+                    <div class="bg-compass-50/70 rounded-2xl p-4 border border-compass-200/80 flex items-center justify-between gap-3">
+                        <div>
+                            <p id="drawer-example-en" class="font-heading font-bold text-sm sm:text-base text-slate-900"></p>
+                            <p id="drawer-example-vi" class="text-xs sm:text-sm text-slate-600 mt-1"></p>
+                        </div>
+                        <button type="button" onclick="speakDrawerExample()"
+                            class="w-11 h-11 rounded-xl bg-compass-600 hover:bg-compass-700 text-white flex items-center justify-center shadow-sm transition-colors cursor-pointer shrink-0" title="Nghe phát âm">
+                            <i data-lucide="volume-2" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 4. One-line Quick Memory Tip -->
+                <div class="mt-5 bg-amber-50/90 rounded-2xl p-4 border border-amber-200/90 flex items-start gap-3">
+                    <div class="w-8 h-8 rounded-xl bg-amber-400/25 text-amber-700 flex items-center justify-center shrink-0 mt-0.5">
+                        <i data-lucide="lightbulb" class="w-4 h-4"></i>
+                    </div>
+                    <div>
+                        <div class="text-xs font-extrabold text-amber-900 uppercase tracking-wider mb-0.5">Mẹo nhớ nhanh</div>
+                        <p id="drawer-tip" class="text-xs sm:text-sm font-medium text-amber-950 leading-relaxed"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Drawer Footer Navigation -->
+            <div class="mt-7 pt-4 border-t border-slate-200 flex items-center justify-between gap-3">
+                <button type="button" onclick="navigateDrawerTopic(-1)"
+                    class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition-colors cursor-pointer">
+                    <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                    <span>Chuyên đề trước</span>
+                </button>
+                <button type="button" onclick="navigateDrawerTopic(1)"
+                    class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-compass-600 hover:bg-compass-700 text-white text-xs font-bold transition-colors cursor-pointer">
+                    <span>Chuyên đề tiếp</span>
+                    <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Banner -->
+    <div id="grammar-toast" class="fixed bottom-5 right-5 z-[60] transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
+        <div class="bg-slate-900 text-white px-4 py-3 rounded-2xl shadow-xl border border-slate-700 flex items-center gap-2.5 text-xs sm:text-sm font-medium">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+            <span id="grammar-toast-text">Đang phát âm mẫu câu...</span>
+        </div>
+    </div>
+
+    <!-- ==================== JAVASCRIPT INTERACTIVE ENGINE ==================== -->
+    <script>
+        /**
+         * 1. HERO INTERACTIVE SENTENCE DECODER DATA
+         */
+        const HERO_DECODER_DATA = {
+            tense: [
+                {
+                    label: 'Quá khứ đơn (Đã chấm dứt)',
+                    badge: 'Past Simple • V2/ed',
+                    sentence: 'I lived in Hanoi for 5 years.',
+                    meaning: 'Tôi từng sống ở Hà Nội 5 năm (hiện tại KHÔNG còn ở đó nữa).',
+                    blocks: [
+                        { text: 'I', role: 'Chủ ngữ (S)', color: 'bg-slate-800 text-white' },
+                        { text: 'lived', role: 'Động từ V2 (Đã xong)', color: 'bg-rose-600 text-white' },
+                        { text: 'in Hanoi for 5 years.', role: 'Mốc đã khép lại', color: 'bg-white text-slate-700 border border-slate-200' }
+                    ],
+                    svg: `
+                        <svg viewBox="0 0 360 110" class="w-full h-full">
+                            <line x1="25" y1="62" x2="335" y2="62" stroke="#CBD5E1" stroke-width="3" stroke-linecap="round"/>
+                            <polygon points="335,57 345,62 335,67" fill="#94A3B8"/>
+                            <!-- Past Segment Ended -->
+                            <rect x="55" y="46" width="110" height="14" rx="7" fill="#F43F5E"/>
+                            <circle cx="55" cy="62" r="5" fill="#E11D48"/>
+                            <circle cx="165" cy="62" r="5" fill="#E11D48"/>
+                            <line x1="165" y1="34" x2="165" y2="82" stroke="#E11D48" stroke-width="2" stroke-dasharray="3 3"/>
+                            <text x="110" y="36" text-anchor="middle" fill="#E11D48" font-size="11" font-weight="bold">5 năm (Đã kết thúc)</text>
+                            <!-- NOW Marker -->
+                            <circle cx="240" cy="62" r="7" fill="#4F46E5"/>
+                            <text x="240" y="88" text-anchor="middle" fill="#4F46E5" font-size="11" font-weight="bold">HIỆN TẠI (NOW)</text>
+                        </svg>
+                    `
+                },
+                {
+                    label: 'Hiện tại hoàn thành (Vẫn tiếp diễn)',
+                    badge: 'Present Perfect • have + V3',
+                    sentence: 'I have lived in Hanoi for 5 years.',
+                    meaning: 'Tôi đã sống ở Hà Nội được 5 năm (và HIỆN TẠI VẪN đang sống ở đây).',
+                    blocks: [
+                        { text: 'I', role: 'Chủ ngữ (S)', color: 'bg-slate-800 text-white' },
+                        { text: 'have lived', role: 'have + V3 (Nối tới nay)', color: 'bg-emerald-600 text-white' },
+                        { text: 'in Hanoi for 5 years.', role: 'Kéo dài đến hiện tại', color: 'bg-white text-slate-700 border border-slate-200' }
+                    ],
+                    svg: `
+                        <svg viewBox="0 0 360 110" class="w-full h-full">
+                            <line x1="25" y1="62" x2="335" y2="62" stroke="#CBD5E1" stroke-width="3" stroke-linecap="round"/>
+                            <polygon points="335,57 345,62 335,67" fill="#94A3B8"/>
+                            <!-- Continuous Bridge to NOW -->
+                            <rect x="75" y="46" width="165" height="14" rx="7" fill="#10B981"/>
+                            <circle cx="75" cy="62" r="5" fill="#059669"/>
+                            <text x="158" y="36" text-anchor="middle" fill="#047857" font-size="11" font-weight="bold">5 năm kéo dài chạm mốc NOW</text>
+                            <!-- NOW Marker -->
+                            <circle cx="240" cy="62" r="8" fill="#4F46E5" stroke="#A7F3D0" stroke-width="3"/>
+                            <text x="240" y="88" text-anchor="middle" fill="#4F46E5" font-size="11" font-weight="bold">HIỆN TẠI (VẪN Ở ĐÂY)</text>
+                        </svg>
+                    `
+                }
+            ],
+            voice: [
+                {
+                    label: 'Câu Chủ Động (Nhấn người làm)',
+                    badge: 'Active • S + V + O',
+                    sentence: 'Engineers designed this smart bridge.',
+                    meaning: 'Các kỹ sư đã thiết kế cây cầu thông minh này.',
+                    blocks: [
+                        { text: 'Engineers', role: 'Chủ thể (S)', color: 'bg-indigo-600 text-white' },
+                        { text: 'designed', role: 'Hành động (V2)', color: 'bg-slate-800 text-white' },
+                        { text: 'this smart bridge.', role: 'Đối tượng (O)', color: 'bg-amber-500 text-slate-950' }
+                    ],
+                    svg: `
+                        <svg viewBox="0 0 360 110" class="w-full h-full">
+                            <rect x="24" y="34" width="96" height="40" rx="12" fill="#4F46E5"/>
+                            <text x="72" y="58" text-anchor="middle" fill="white" font-size="11" font-weight="bold">S: Engineers</text>
+                            <path d="M128 54H162" stroke="#64748B" stroke-width="3" stroke-linecap="round"/>
+                            <polygon points="160,49 170,54 160,59" fill="#64748B"/>
+                            <rect x="176" y="34" width="156" height="40" rx="12" fill="#F59E0B"/>
+                            <text x="254" y="58" text-anchor="middle" fill="#1E1B4B" font-size="11" font-weight="bold">O: This smart bridge</text>
+                        </svg>
+                    `
+                },
+                {
+                    label: 'Câu Bị Động (Đảo đối tượng lên đầu)',
+                    badge: 'Passive • O + be + V3',
+                    sentence: 'This smart bridge was designed by engineers.',
+                    meaning: 'Cây cầu thông minh này được thiết kế bởi các kỹ sư.',
+                    blocks: [
+                        { text: 'This smart bridge', role: 'Đối tượng lên đầu', color: 'bg-amber-500 text-slate-950' },
+                        { text: 'was designed', role: 'be + V3 (Bị động)', color: 'bg-emerald-600 text-white' },
+                        { text: 'by engineers.', role: 'Tác nhân (by + S)', color: 'bg-indigo-600 text-white' }
+                    ],
+                    svg: `
+                        <svg viewBox="0 0 360 110" class="w-full h-full">
+                            <rect x="24" y="34" width="136" height="40" rx="12" fill="#F59E0B"/>
+                            <text x="92" y="58" text-anchor="middle" fill="#1E1B4B" font-size="11" font-weight="bold">This smart bridge</text>
+                            <rect x="170" y="34" width="92" height="40" rx="12" fill="#10B981"/>
+                            <text x="216" y="58" text-anchor="middle" fill="white" font-size="11" font-weight="bold">was designed</text>
+                            <rect x="272" y="34" width="66" height="40" rx="12" fill="#4F46E5"/>
+                            <text x="305" y="58" text-anchor="middle" fill="white" font-size="10" font-weight="bold">by S</text>
+                        </svg>
+                    `
+                }
+            ]
+        };
+
+        let heroMode = 'tense';
+        let heroVariantIdx = 0;
+
+        function setHeroDecoderMode(mode) {
+            heroMode = mode;
+            heroVariantIdx = 0;
+            const btnTense = document.getElementById('hero-mode-tense');
+            const btnVoice = document.getElementById('hero-mode-voice');
+            if (mode === 'tense') {
+                btnTense.className = 'px-3 py-1 rounded-lg text-xs font-bold bg-compass-600 text-white transition-all cursor-pointer';
+                btnVoice.className = 'px-3 py-1 rounded-lg text-xs font-bold text-slate-300 hover:text-white transition-all cursor-pointer';
+            } else {
+                btnVoice.className = 'px-3 py-1 rounded-lg text-xs font-bold bg-compass-600 text-white transition-all cursor-pointer';
+                btnTense.className = 'px-3 py-1 rounded-lg text-xs font-bold text-slate-300 hover:text-white transition-all cursor-pointer';
+            }
+            renderHeroDecoder();
+        }
+
+        function setHeroVariant(idx) {
+            heroVariantIdx = idx;
+            renderHeroDecoder();
+        }
+
+        function renderHeroDecoder() {
+            const list = HERO_DECODER_DATA[heroMode];
+            const active = list[heroVariantIdx];
+
+            // Variant buttons
+            const tabsEl = document.getElementById('hero-variant-tabs');
+            tabsEl.innerHTML = list.map((item, idx) => `
+                <button type="button" onclick="setHeroVariant(${idx})"
+                    class="p-2.5 rounded-xl text-left border transition-all cursor-pointer ${idx === heroVariantIdx
+                        ? 'bg-compass-50 border-compass-500 text-compass-900 shadow-2xs'
+                        : 'bg-white border-slate-200 text-slate-600 hover:border-slate-300'}">
+                    <div class="font-mono text-[10px] font-bold ${idx === heroVariantIdx ? 'text-compass-600' : 'text-slate-400'}">${item.badge}</div>
+                    <div class="font-heading font-bold text-xs sm:text-sm truncate mt-0.5">${item.label}</div>
+                </button>
+            `).join('');
+
+            // SVG Diagram
+            document.getElementById('hero-svg-stage').innerHTML = active.svg;
+
+            // Blocks + Meaning + Speak Button
+            document.getElementById('hero-sentence-box').innerHTML = `
+                <div class="flex flex-wrap items-center gap-2 mb-3">
+                    ${active.blocks.map(b => `
+                        <div class="px-3 py-1.5 rounded-xl ${b.color} shadow-2xs">
+                            <div class="font-heading font-bold text-xs sm:text-sm">${b.text}</div>
+                            <div class="text-[10px] opacity-85 font-medium">${b.role}</div>
+                        </div>
+                    `).join('')}
+                </div>
+                <div class="flex items-center justify-between gap-3 pt-2.5 border-t border-indigo-200/70">
+                    <p class="text-xs sm:text-sm font-medium text-slate-700">${active.meaning}</p>
+                    <button type="button" onclick="speakEnglishText('${escapeJs(active.sentence)}')"
+                        class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-compass-600 hover:bg-compass-700 text-white text-xs font-bold shrink-0 cursor-pointer">
+                        <i data-lucide="volume-2" class="w-3.5 h-3.5"></i>
+                        <span>Nghe</span>
+                    </button>
+                </div>
+            `;
+            lucide.createIcons();
+        }
+
+        /**
+         * 2. SECTION 1: INTERACTIVE LEGO GRAMMAR PIPELINE
+         */
+        const legoState = {
+            tense: true,
+            relative: true,
+            connector: false
+        };
+
+        function toggleLegoBlock(key) {
+            legoState[key] = !legoState[key];
+            const styles = {
+                tense: { id: 'lego-btn-tense', active: 'bg-indigo-600 text-white', inactive: 'bg-white text-slate-600 border border-slate-200' },
+                relative: { id: 'lego-btn-relative', active: 'bg-emerald-600 text-white', inactive: 'bg-white text-slate-600 border border-slate-200' },
+                connector: { id: 'lego-btn-connector', active: 'bg-amber-500 text-white', inactive: 'bg-white text-slate-600 border border-slate-200' }
+            };
+            const cfg = styles[key];
+            const btn = document.getElementById(cfg.id);
+            btn.className = `inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold shadow-2xs transition-all cursor-pointer ${legoState[key] ? cfg.active : cfg.inactive}`;
+            renderLegoPipeline();
+        }
+
+        function renderLegoPipeline() {
+            const blocks = [
+                {
+                    tag: 'Khối Lõi (S + V + O)',
+                    text: legoState.tense ? 'Lan has mastered English grammar' : 'Lan masters English grammar',
+                    bg: 'bg-slate-900 text-white border-slate-700'
+                }
+            ];
+
+            if (legoState.tense) {
+                blocks.push({
+                    tag: '+ Khối Thì (has + V3)',
+                    text: 'since last year',
+                    bg: 'bg-indigo-600 text-white border-indigo-500'
+                });
+            }
+            if (legoState.relative) {
+                blocks.push({
+                    tag: '+ Mệnh đề Quan hệ',
+                    text: 'which helps her read global reports',
+                    bg: 'bg-emerald-600 text-white border-emerald-500'
+                });
+            }
+            if (legoState.connector) {
+                blocks.push({
+                    tag: '+ Liên từ Mục đích',
+                    text: 'so that she can work internationally',
+                    bg: 'bg-amber-500 text-slate-950 border-amber-400'
+                });
+            }
+
+            const pipelineEl = document.getElementById('lego-visual-pipeline');
+            pipelineEl.innerHTML = blocks.map((b, i) => `
+                ${i > 0 ? `<div class="text-slate-400 font-extrabold text-lg">+</div>` : ''}
+                <div class="px-4 py-3 rounded-2xl border-2 ${b.bg} shadow-sm animate-pop text-center">
+                    <div class="text-[10px] font-mono font-bold uppercase opacity-85 mb-0.5">${b.tag}</div>
+                    <div class="font-heading font-bold text-sm sm:text-base">${b.text}</div>
+                </div>
+            `).join('');
+
+            // Build final sentence & Vietnamese meaning
+            const fullEn = blocks.map(b => b.text).join(' ') + '.';
+            let fullVi = legoState.tense ? 'Lan đã làm chủ ngữ pháp tiếng Anh từ năm ngoái' : 'Lan nắm vững ngữ pháp tiếng Anh';
+            if (legoState.relative) fullVi += ', điều này giúp cô ấy đọc hiểu các báo cáo quốc tế';
+            if (legoState.connector) fullVi += ' để có thể làm việc trong môi trường toàn cầu';
+            fullVi += '.';
+
+            document.getElementById('lego-output-sentence').textContent = fullEn;
+            document.getElementById('lego-output-meaning').textContent = fullVi;
+        }
+
+        function speakLegoSentence() {
+            const text = document.getElementById('lego-output-sentence').textContent;
+            speakEnglishText(text);
+        }
+
+        /**
+         * 3. SECTION 2: 15 COMPREHENSIVE GRAMMAR TOPICS (A1 -> C2)
+         */
+        const GRAMMAR_TOPICS = [
+            {
+                id: 1,
+                title: 'Tenses (12 Thì động từ)',
+                levelGroup: 'basic',
+                levelBadge: 'A1–B2',
+                icon: 'clock',
+                color: 'indigo',
+                shortDesc: 'Định vị thời điểm & trạng thái hành động trên trục thời gian.',
+                formula: 'Hiện tại: S + V(s/es) | Quá khứ: S + V2/ed | Hoàn thành: S + have/has + V3',
+                exampleEn: 'She has worked at Compass English since 2024.',
+                exampleVi: 'Cô ấy đã làm việc tại Compass English từ năm 2024 đến nay.',
+                tip: 'Nhìn từ khóa thời gian trước: yesterday → V2, since/for → have/has + V3, at 8pm yesterday → was/were V-ing.',
+                svg: `<svg viewBox="0 0 320 90" class="w-full h-24">
+                    <line x1="20" y1="48" x2="300" y2="48" stroke="#94A3B8" stroke-width="2.5"/>
+                    <circle cx="75" cy="48" r="7" fill="#F43F5E"/><text x="75" y="72" text-anchor="middle" font-size="10" font-weight="bold" fill="#E11D48">PAST (V2)</text>
+                    <circle cx="160" cy="48" r="8" fill="#4F46E5"/><text x="160" y="72" text-anchor="middle" font-size="10" font-weight="bold" fill="#4F46E5">NOW (V1)</text>
+                    <circle cx="245" cy="48" r="7" fill="#10B981"/><text x="245" y="72" text-anchor="middle" font-size="10" font-weight="bold" fill="#059669">FUTURE (will)</text>
+                </svg>`
+            },
+            {
+                id: 2,
+                title: 'Parts of Speech (Từ loại & Trật tự từ)',
+                levelGroup: 'basic',
+                levelBadge: 'A1–B1',
+                icon: 'shapes',
+                color: 'emerald',
+                shortDesc: 'Xếp đúng vị trí Danh – Động – Tính – Trạng trong cụm và câu.',
+                formula: 'Mạo từ / Tính từ sở hữu + (Adv) + Adj + Noun  |  Verb + Adv',
+                exampleEn: 'They developed an extremely effective learning system.',
+                exampleVi: 'Họ đã phát triển một hệ thống học tập cực kỳ hiệu quả.',
+                tip: 'Tính từ đứng trước Danh từ (Adj + N); Trạng từ bổ nghĩa cho Động từ hoặc Tính từ (Adv + Adj / V + Adv).',
+                svg: `<svg viewBox="0 0 320 90" class="w-full h-24">
+                    <rect x="16" y="25" width="64" height="38" rx="10" fill="#F59E0B"/><text x="48" y="48" text-anchor="middle" font-size="11" font-weight="bold" fill="#1E1B4B">ADV</text>
+                    <path d="M84 44H98" stroke="#64748B" stroke-width="2"/>
+                    <rect x="102" y="25" width="76" height="38" rx="10" fill="#10B981"/><text x="140" y="48" text-anchor="middle" font-size="11" font-weight="bold" fill="white">ADJ</text>
+                    <path d="M182 44H196" stroke="#64748B" stroke-width="2"/>
+                    <rect x="200" y="25" width="104" height="38" rx="10" fill="#4F46E5"/><text x="252" y="48" text-anchor="middle" font-size="11" font-weight="bold" fill="white">NOUN (Lõi)</text>
+                </svg>`
+            },
+            {
+                id: 3,
+                title: 'Non-Finite Verbs (To-V, V-ing, Phân từ)',
+                levelGroup: 'inter',
+                levelBadge: 'A2–B2',
+                icon: 'git-merge',
+                color: 'amber',
+                shortDesc: 'Phân biệt động từ theo sau bởi To-V, V-ing và phân từ rút gọn.',
+                formula: 'want/decide/hope + to V  |  enjoy/avoid/finish + V-ing  |  V-ing (chủ động) vs V3 (bị động)',
+                exampleEn: 'Remember to lock the door before leaving the office.',
+                exampleVi: 'Hãy nhớ khóa cửa trước khi rời khỏi văn phòng.',
+                tip: 'To-V thường hướng tới mục đích/tương lai (chưa làm); V-ing thường chỉ trải nghiệm/sự việc đang hoặc đã diễn ra.',
+                svg: `<svg viewBox="0 0 320 90" class="w-full h-24">
+                    <rect x="20" y="26" width="125" height="38" rx="10" fill="#4F46E5"/><text x="82" y="49" text-anchor="middle" font-size="11" font-weight="bold" fill="white">to + V0 (Sắp làm)</text>
+                    <rect x="175" y="26" width="125" height="38" rx="10" fill="#F59E0B"/><text x="237" y="49" text-anchor="middle" font-size="11" font-weight="bold" fill="#1E1B4B">V-ing (Đã/Đang làm)</text>
+                </svg>`
+            },
+            {
+                id: 4,
+                title: 'Passive Voice (Câu bị động)',
+                levelGroup: 'inter',
+                levelBadge: 'A2–B2',
+                icon: 'repeat',
+                color: 'rose',
+                shortDesc: 'Chuyển trọng tâm sang đối tượng chịu tác động của hành động.',
+                formula: 'S (đối tượng) + be (chia theo thì) + V3/ed + (by + tác nhân)',
+                exampleEn: 'The new grammar guide will be published next week.',
+                exampleVi: 'Tài liệu hướng dẫn ngữ pháp mới sẽ được xuất bản vào tuần tới.',
+                tip: 'Công thức bất biến của bị động luôn phải có đủ 2 thành phần: [Động từ TO BE] + [Phân từ 2 (V3/ed)].',
+                svg: `<svg viewBox="0 0 320 90" class="w-full h-24">
+                    <rect x="18" y="25" width="90" height="38" rx="10" fill="#F59E0B"/><text x="63" y="48" text-anchor="middle" font-size="11" font-weight="bold" fill="#1E1B4B">Object → S</text>
+                    <text x="122" y="49" font-size="14" font-weight="bold" fill="#64748B">+</text>
+                    <rect x="136" y="25" width="76" height="38" rx="10" fill="#10B981"/><text x="174" y="48" text-anchor="middle" font-size="11" font-weight="bold" fill="white">BE (Thì)</text>
+                    <text x="224" y="49" font-size="14" font-weight="bold" fill="#64748B">+</text>
+                    <rect x="238" y="25" width="66" height="38" rx="10" fill="#E11D48"/><text x="271" y="48" text-anchor="middle" font-size="11" font-weight="bold" fill="white">V3/ed</text>
+                </svg>`
+            },
+            {
+                id: 5,
+                title: 'Modal Verbs (Động từ khuyết thiếu)',
+                levelGroup: 'basic',
+                levelBadge: 'A1–B2',
+                icon: 'shield-check',
+                color: 'indigo',
+                shortDesc: 'Diễn đạt khả năng, lời khuyên, sự bắt buộc và suy đoán logic.',
+                formula: 'S + can/could/should/must/may/might + V0  |  Suy đoán QK: Modal + have + V3',
+                exampleEn: 'You must have left your keys on the desk.',
+                exampleVi: 'Chắc hẳn bạn đã để quên chìa khóa trên bàn rồi (suy đoán có cơ sở).',
+                tip: 'Sau Modal Verbs luôn là động từ nguyên mẫu không "to" (V0); thêm "have + V3" để suy đoán việc trong quá khứ.',
+                svg: `<svg viewBox="0 0 320 90" class="w-full h-24">
+                    <rect x="25" y="25" width="130" height="38" rx="10" fill="#4F46E5"/><text x="90" y="48" text-anchor="middle" font-size="11" font-weight="bold" fill="white">must / should / can</text>
+                    <path d="M162 44H188" stroke="#64748B" stroke-width="2.5"/><polygon points="186,39 195,44 186,49" fill="#64748B"/>
+                    <rect x="200" y="25" width="95" height="38" rx="10" fill="#10B981"/><text x="247" y="48" text-anchor="middle" font-size="11" font-weight="bold" fill="white">V0 (Nguyên thể)</text>
+                </svg>`
+            },
+            {
+                id: 6,
+                title: 'Comparison (Cấu trúc so sánh)',
+                levelGroup: 'basic',
+                levelBadge: 'A1–B2',
+                icon: 'bar-chart-2',
+                color: 'emerald',
+                shortDesc: 'So sánh bằng, hơn, nhất, so sánh kép đồng tiến và gấp bội.',
+                formula: 'Hơn: adj-er / more adj + than  |  Kép: The + comp + S + V, the + comp + S + V',
+                exampleEn: 'The more you practice structures, the faster you speak.',
+                exampleVi: 'Bạn càng luyện tập cấu trúc nhiều, bạn nói càng nhanh.',
+                tip: 'So sánh gấp bội (twice, three times) dùng công thức: [Số lần + as + adj/adv nguyên mẫu + as].',
+                svg: `<svg viewBox="0 0 320 90" class="w-full h-24">
+                    <rect x="45" y="52" width="44" height="24" rx="6" fill="#94A3B8"/>
+                    <rect x="125" y="36" width="44" height="40" rx="6" fill="#10B981"/>
+                    <rect x="205" y="16" width="44" height="60" rx="6" fill="#4F46E5"/>
+                    <text x="67" y="46" text-anchor="middle" font-size="9" font-weight="bold" fill="#475569">as...as</text>
+                    <text x="147" y="30" text-anchor="middle" font-size="9" font-weight="bold" fill="#059669">-er / more</text>
+                    <text x="227" y="11" text-anchor="middle" font-size="9" font-weight="bold" fill="#4F46E5">the -est / most</text>
+                </svg>`
+            },
+            {
+                id: 7,
+                title: 'Conditionals (Câu điều kiện)',
+                levelGroup: 'inter',
+                levelBadge: 'A2–C1',
+                icon: 'git-fork',
+                color: 'amber',
+                shortDesc: 'Diễn đạt giả thiết có thật (Loại 1) và không có thật (Loại 2, 3, Trộn).',
+                formula: 'L1: If V1, will V0 | L2: If V2 (were), would V0 | L3: If had V3, would have V3',
+                exampleEn: 'If I had known about the workshop, I would have joined.',
+                exampleVi: 'Nếu tôi biết trước về buổi workshop đó, tôi đã tham gia rồi (trái quá khứ).',
+                tip: 'Quy tắc lùi 1 bậc thì ở mệnh đề IF: Hiện tại → dùng V2 (Loại 2); Quá khứ → dùng had V3 (Loại 3).',
+                svg: `<svg viewBox="0 0 320 90" class="w-full h-24">
+                    <rect x="20" y="25" width="115" height="38" rx="10" fill="#F59E0B"/><text x="77" y="48" text-anchor="middle" font-size="11" font-weight="bold" fill="#1E1B4B">IF (Giả thiết)</text>
+                    <path d="M142 44H174" stroke="#64748B" stroke-width="2.5"/><polygon points="172,39 181,44 172,49" fill="#64748B"/>
+                    <rect x="186" y="25" width="114" height="38" rx="10" fill="#4F46E5"/><text x="243" y="48" text-anchor="middle" font-size="11" font-weight="bold" fill="white">RESULT (Kết quả)</text>
+                </svg>`
+            },
+            {
+                id: 8,
+                title: 'Relative Clauses (Mệnh đề quan hệ)',
+                levelGroup: 'inter',
+                levelBadge: 'B1–B2',
+                icon: 'link-2',
+                color: 'indigo',
+                shortDesc: 'Nối 2 câu bằng who, whom, whose, which, that, where, when & rút gọn.',
+                formula: 'Người: who/whom | Vật: which/that | Sở hữu: whose + N | Nơi chốn: where (= in which)',
+                exampleEn: 'The book that explains grammar visually is on the shelf.',
+                exampleVi: 'Cuốn sách giải thích ngữ pháp bằng hình ảnh đang ở trên kệ.',
+                tip: 'Sau dấu phẩy (mệnh đề không xác định) và sau giới từ (in, on, to...) tuyệt đối KHÔNG dùng "that".',
+                svg: `<svg viewBox="0 0 320 90" class="w-full h-24">
+                    <rect x="16" y="26" width="88" height="36" rx="10" fill="#1E1B4B"/><text x="60" y="48" text-anchor="middle" font-size="11" font-weight="bold" fill="white">Danh từ</text>
+                    <circle cx="138" cy="44" r="22" fill="#4F46E5"/><text x="138" y="48" text-anchor="middle" font-size="10" font-weight="bold" fill="white">who/which</text>
+                    <rect x="172" y="26" width="132" height="36" rx="10" fill="#10B981"/><text x="238" y="48" text-anchor="middle" font-size="10" font-weight="bold" fill="white">Mệnh đề bổ nghĩa</text>
+                </svg>`
+            },
+            {
+                id: 9,
+                title: 'Reported Speech (Câu tường thuật)',
+                levelGroup: 'inter',
+                levelBadge: 'B1–B2',
+                icon: 'message-square-quote',
+                color: 'emerald',
+                shortDesc: 'Thuật lại lời nói, câu hỏi và mệnh lệnh với quy tắc lùi thì chuẩn xác.',
+                formula: 'S + said/told + (that) + S + V (lùi 1 thì)  |  asked + if/Wh- + S + V (trật tự trần thuật)',
+                exampleEn: 'She asked me where I had learned those grammar tricks.',
+                exampleVi: 'Cô ấy hỏi tôi đã học những mẹo ngữ pháp đó ở đâu.',
+                tip: 'Trong câu hỏi gián tiếp, luôn đưa chủ ngữ lên trước động từ (S + V), không đảo trợ động từ.',
+                svg: `<svg viewBox="0 0 320 90" class="w-full h-24">
+                    <rect x="18" y="26" width="115" height="36" rx="10" fill="#64748B"/><text x="75" y="48" text-anchor="middle" font-size="10" font-weight="bold" fill="white">"I am busy now"</text>
+                    <path d="M140 44H170" stroke="#10B981" stroke-width="2.5"/><polygon points="168,39 177,44 168,49" fill="#10B981"/>
+                    <rect x="182" y="26" width="122" height="36" rx="10" fill="#059669"/><text x="243" y="48" text-anchor="middle" font-size="10" font-weight="bold" fill="white">he was busy then</text>
+                </svg>`
+            },
+            {
+                id: 10,
+                title: 'Sentence Types & Linking (Liên từ & Loại câu)',
+                levelGroup: 'inter',
+                levelBadge: 'B1–B2',
+                icon: 'network',
+                color: 'rose',
+                shortDesc: 'Phân biệt Liên từ (Although/Because) và Giới từ (Despite/Because of).',
+                formula: 'Although / Because + S + V  |  Despite / In spite of / Because of + Noun / V-ing',
+                exampleEn: 'Although the rain was heavy, we arrived on time.',
+                exampleVi: 'Mặc dù trời mưa lớn, chúng tôi vẫn đến đúng giờ.',
+                tip: 'Đếm số động từ chia thì: có S + V phía sau thì chọn Although/Because; chỉ có cụm danh từ thì chọn Despite/Because of.',
+                svg: `<svg viewBox="0 0 320 90" class="w-full h-24">
+                    <rect x="16" y="26" width="132" height="36" rx="10" fill="#4F46E5"/><text x="82" y="48" text-anchor="middle" font-size="10" font-weight="bold" fill="white">Although + S + V</text>
+                    <rect x="168" y="26" width="136" height="36" rx="10" fill="#E11D48"/><text x="236" y="48" text-anchor="middle" font-size="10" font-weight="bold" fill="white">Despite + N/V-ing</text>
+                </svg>`
+            },
+            {
+                id: 11,
+                title: 'Articles, Quantifiers & Prepositions',
+                levelGroup: 'basic',
+                levelBadge: 'A1–B2',
+                icon: 'map-pin',
+                color: 'amber',
+                shortDesc: 'Dùng chuẩn a/an/the, lượng từ (few/little/much/many) và giới từ in/on/at.',
+                formula: 'an + nguyên âm phát âm (an hour) | at (giờ) • on (ngày/thứ) • in (tháng/năm/mùa)',
+                exampleEn: 'Our study group meets on Friday evenings at 7 p.m.',
+                exampleVi: 'Nhóm học của chúng tôi gặp nhau vào tối thứ Sáu lúc 7 giờ tối.',
+                tip: 'Cứ có dính tới "Ngày/Thứ" (kể cả Friday evening hay May 1st) là dùng giới từ ON.',
+                svg: `<svg viewBox="0 0 320 90" class="w-full h-24">
+                    <rect x="20" y="26" width="84" height="36" rx="10" fill="#F59E0B"/><text x="62" y="48" text-anchor="middle" font-size="11" font-weight="bold" fill="#1E1B4B">AT (Giờ)</text>
+                    <rect x="118" y="26" width="84" height="36" rx="10" fill="#10B981"/><text x="160" y="48" text-anchor="middle" font-size="11" font-weight="bold" fill="white">ON (Ngày)</text>
+                    <rect x="216" y="26" width="84" height="36" rx="10" fill="#4F46E5"/><text x="258" y="48" text-anchor="middle" font-size="11" font-weight="bold" fill="white">IN (Tháng)</text>
+                </svg>`
+            },
+            {
+                id: 12,
+                title: 'Subject-Verb Agreement (Hòa hợp Chủ - Vị)',
+                levelGroup: 'inter',
+                levelBadge: 'B1–B2',
+                icon: 'scale',
+                color: 'indigo',
+                shortDesc: 'Chia động từ số ít/số nhiều chuẩn xác với chủ ngữ phức tạp.',
+                formula: 'A number of + N(nhiều) + V(nhiều)  |  The number of + N(nhiều) + V(ít)',
+                exampleEn: 'Neither the teacher nor the students were late today.',
+                exampleVi: 'Cả giáo viên lẫn các học sinh đều không đi muộn hôm nay.',
+                tip: 'Với Either...or / Neither...nor, động từ chia theo chủ ngữ đứng GẦN động từ nhất.',
+                svg: `<svg viewBox="0 0 320 90" class="w-full h-24">
+                    <rect x="24" y="26" width="115" height="36" rx="10" fill="#4F46E5"/><text x="81" y="48" text-anchor="middle" font-size="11" font-weight="bold" fill="white">Subject (Ít/Nhiều)</text>
+                    <text x="160" y="50" text-anchor="middle" font-size="16" font-weight="bold" fill="#10B981">=</text>
+                    <rect x="181" y="26" width="115" height="36" rx="10" fill="#10B981"/><text x="238" y="48" text-anchor="middle" font-size="11" font-weight="bold" fill="white">Verb (Đồng nhất)</text>
+                </svg>`
+            },
+            {
+                id: 13,
+                title: 'Subjunctive & Hypothetical (Thức giả định)',
+                levelGroup: 'adv',
+                levelBadge: 'B2–C2',
+                icon: 'sparkles',
+                color: 'rose',
+                shortDesc: 'Cấu trúc đề nghị bắt buộc (suggest/essential) và câu ước wish / if only.',
+                formula: 'S + suggest/recommend/essential + (that) + S + (should) + V0 (nguyên thể không chia)',
+                exampleEn: 'It is essential that every student submit the essay on time.',
+                exampleVi: 'Điều thiết yếu là mọi học sinh phải nộp bài luận đúng hạn.',
+                tip: 'Sau các động từ/tính từ mang tính đề xuất, yêu cầu (suggest, insist, vital), động từ luôn giữ nguyên thể V0 kể cả chủ ngữ số ít!',
+                svg: `<svg viewBox="0 0 320 90" class="w-full h-24">
+                    <rect x="16" y="26" width="142" height="36" rx="10" fill="#E11D48"/><text x="87" y="48" text-anchor="middle" font-size="10" font-weight="bold" fill="white">suggest / vital that</text>
+                    <path d="M164 44H186" stroke="#64748B" stroke-width="2.5"/><polygon points="184,39 193,44 184,49" fill="#64748B"/>
+                    <rect x="198" y="26" width="106" height="36" rx="10" fill="#1E1B4B"/><text x="251" y="48" text-anchor="middle" font-size="11" font-weight="bold" fill="#FBBF24">S + V0 (Không s)</text>
+                </svg>`
+            },
+            {
+                id: 14,
+                title: 'Inversion & Emphasis (Đảo ngữ & Nhấn mạnh)',
+                levelGroup: 'adv',
+                levelBadge: 'B2–C2',
+                icon: 'arrow-up-down',
+                color: 'emerald',
+                shortDesc: 'Đưa từ phủ định lên đầu câu để nhấn mạnh trang trọng và dùng câu chẻ.',
+                formula: 'Never / Rarely / Not only + Trợ động từ + S + V  |  It is/was + [Thành phần] + that/who...',
+                exampleEn: 'Not only did she pass the test, but she also got the highest score.',
+                exampleVi: 'Cô ấy không chỉ vượt qua kỳ thi mà còn đạt điểm cao nhất.',
+                tip: 'Hễ thấy trạng từ phủ định (Never, Seldom, Hardly, No sooner) đứng đầu câu → đảo trợ động từ lên trước S như câu hỏi.',
+                svg: `<svg viewBox="0 0 320 90" class="w-full h-24">
+                    <rect x="14" y="26" width="90" height="36" rx="10" fill="#E11D48"/><text x="59" y="48" text-anchor="middle" font-size="10" font-weight="bold" fill="white">Never / Not only</text>
+                    <rect x="114" y="26" width="92" height="36" rx="10" fill="#4F46E5"/><text x="160" y="48" text-anchor="middle" font-size="10" font-weight="bold" fill="white">Aux (do/have)</text>
+                    <rect x="216" y="26" width="90" height="36" rx="10" fill="#10B981"/><text x="261" y="48" text-anchor="middle" font-size="10" font-weight="bold" fill="white">S + V</text>
+                </svg>`
+            },
+            {
+                id: 15,
+                title: 'Word Formation & Collocation Grammar',
+                levelGroup: 'adv',
+                levelBadge: 'B1–C2',
+                icon: 'puzzle',
+                color: 'amber',
+                shortDesc: 'Quy luật tiền tố/hậu tố biến đổi từ loại và kết hợp từ chuẩn tự nhiên.',
+                formula: 'Danh từ: -tion, -ment, -ness | Tính từ: -ive, -ous, -able | Động từ: -ize, -ify, en-',
+                exampleEn: 'Consistent practice leads to remarkable improvement.',
+                exampleVi: 'Việc luyện tập đều đặn dẫn đến sự tiến bộ vượt bậc.',
+                tip: 'Học từ vựng theo "gia đình từ" (analyze → analysis → analytical → analytically) giúp nhân 4 vốn từ ngay lập tức.',
+                svg: `<svg viewBox="0 0 320 90" class="w-full h-24">
+                    <rect x="20" y="26" width="76" height="36" rx="10" fill="#F59E0B"/><text x="58" y="48" text-anchor="middle" font-size="10" font-weight="bold" fill="#1E1B4B">Tiền tố (un-)</text>
+                    <rect x="108" y="26" width="104" height="36" rx="10" fill="#1E1B4B"/><text x="160" y="48" text-anchor="middle" font-size="11" font-weight="bold" fill="white">Gốc từ (Root)</text>
+                    <rect x="224" y="26" width="76" height="36" rx="10" fill="#10B981"/><text x="262" y="48" text-anchor="middle" font-size="10" font-weight="bold" fill="white">Hậu tố (-ly)</text>
+                </svg>`
+            }
+        ];
+
+        let activeLevelFilter = 'all';
+        let activeTopicSearch = '';
+        let currentDrawerTopicIdx = 0;
+
+        function renderTopicsGrid() {
+            const q = activeTopicSearch.trim().toLowerCase();
+            const filtered = GRAMMAR_TOPICS.filter(t => {
+                const levelMatch = activeLevelFilter === 'all' || t.levelGroup === activeLevelFilter;
+                if (!levelMatch) return false;
+                if (!q) return true;
+                return `${t.id} ${t.title} ${t.levelBadge} ${t.shortDesc} ${t.formula}`.toLowerCase().includes(q);
+            });
+
+            const gridEl = document.getElementById('topics-grid');
+            const emptyEl = document.getElementById('topics-empty');
+
+            if (filtered.length === 0) {
+                gridEl.innerHTML = '';
+                emptyEl.classList.remove('hidden');
+                return;
+            }
+
+            emptyEl.classList.add('hidden');
+            const colorMap = {
+                indigo: { badge: 'bg-indigo-50 text-indigo-700 border-indigo-200', iconBg: 'bg-indigo-600 text-white' },
+                emerald: { badge: 'bg-emerald-50 text-emerald-700 border-emerald-200', iconBg: 'bg-emerald-600 text-white' },
+                amber: { badge: 'bg-amber-50 text-amber-800 border-amber-200', iconBg: 'bg-amber-500 text-slate-950' },
+                rose: { badge: 'bg-rose-50 text-rose-700 border-rose-200', iconBg: 'bg-rose-600 text-white' }
+            };
+
+            gridEl.innerHTML = filtered.map(topic => {
+                const c = colorMap[topic.color] || colorMap.indigo;
+                return `
+                    <article onclick="openTopicDrawer(${topic.id})"
+                        class="topic-card bg-white rounded-3xl p-5 sm:p-6 border border-slate-200/90 hover:border-compass-400 flex flex-col justify-between cursor-pointer group">
+                        <div>
+                            <div class="flex items-center justify-between gap-3 mb-4">
+                                <div class="w-11 h-11 rounded-2xl ${c.iconBg} flex items-center justify-center shadow-xs group-hover:scale-105 transition-transform">
+                                    <i data-lucide="${topic.icon}" class="w-5 h-5"></i>
+                                </div>
+                                <div class="flex items-center gap-1.5">
+                                    <span class="font-mono text-xs font-extrabold text-slate-400">#${String(topic.id).padStart(2, '0')}</span>
+                                    <span class="font-mono text-[11px] font-bold px-2.5 py-0.5 rounded-full border ${c.badge}">${topic.levelBadge}</span>
+                                </div>
+                            </div>
+
+                            <h3 class="font-heading font-extrabold text-lg text-slate-900 group-hover:text-compass-600 transition-colors mb-1.5">
+                                ${topic.title}
+                            </h3>
+                            <p class="text-xs sm:text-sm text-slate-500 leading-relaxed mb-4">
+                                ${topic.shortDesc}
+                            </p>
+                        </div>
+
+                        <!-- Compact Formula Preview -->
+                        <div class="pt-3.5 border-t border-slate-100">
+                            <div class="font-mono text-[11px] font-semibold text-slate-600 bg-slate-50 px-3 py-2 rounded-xl truncate mb-2.5">
+                                ${topic.formula.split('|')[0].trim()}
+                            </div>
+                            <div class="flex items-center justify-between text-xs font-bold text-compass-600">
+                                <span>Xem công thức & sơ đồ</span>
+                                <i data-lucide="arrow-up-right" class="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
+                            </div>
+                        </div>
+                    </article>
+                `;
+            }).join('');
+
+            lucide.createIcons();
+        }
+
+        function filterTopicsByLevel(group) {
+            activeLevelFilter = group;
+            ['all', 'basic', 'inter', 'adv'].forEach(key => {
+                const btn = document.getElementById(`lvl-tab-${key}`);
+                if (!btn) return;
+                btn.className = key === group
+                    ? 'lvl-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-compass-600 text-white shadow-2xs transition-all whitespace-nowrap cursor-pointer'
+                    : 'lvl-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-bold text-slate-600 hover:bg-slate-100 transition-all whitespace-nowrap cursor-pointer';
+            });
+            renderTopicsGrid();
+        }
+
+        function handleTopicSearch(val) {
+            activeTopicSearch = val;
+            document.getElementById('topic-clear-btn').classList.toggle('hidden', !val.trim());
+            renderTopicsGrid();
+        }
+
+        function clearTopicSearch() {
+            const input = document.getElementById('topic-search-input');
+            input.value = '';
+            handleTopicSearch('');
+            input.focus();
+        }
+
+        function resetTopicFilters() {
+            const input = document.getElementById('topic-search-input');
+            if (input) input.value = '';
+            activeTopicSearch = '';
+            document.getElementById('topic-clear-btn').classList.add('hidden');
+            filterTopicsByLevel('all');
+        }
+
+        /**
+         * 4. TOPIC DETAIL DRAWER LOGIC
+         */
+        function openTopicDrawer(topicId) {
+            const idx = GRAMMAR_TOPICS.findIndex(t => t.id === topicId);
+            if (idx === -1) return;
+            currentDrawerTopicIdx = idx;
+            populateDrawerContent();
+
+            const backdrop = document.getElementById('topic-drawer-backdrop');
+            backdrop.classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+        }
+
+        function closeTopicDrawer() {
+            document.getElementById('topic-drawer-backdrop').classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        function navigateDrawerTopic(delta) {
+            currentDrawerTopicIdx = (currentDrawerTopicIdx + delta + GRAMMAR_TOPICS.length) % GRAMMAR_TOPICS.length;
+            populateDrawerContent();
+        }
+
+        function populateDrawerContent() {
+            const t = GRAMMAR_TOPICS[currentDrawerTopicIdx];
+            document.getElementById('drawer-number').textContent = `#${String(t.id).padStart(2, '0')} / 15`;
+            document.getElementById('drawer-level').textContent = t.levelBadge;
+            document.getElementById('drawer-topic-title').textContent = t.title;
+            document.getElementById('drawer-topic-sub').textContent = t.shortDesc;
+            document.getElementById('drawer-formula').textContent = t.formula;
+            document.getElementById('drawer-svg-box').innerHTML = t.svg;
+            document.getElementById('drawer-example-en').textContent = t.exampleEn;
+            document.getElementById('drawer-example-vi').textContent = t.exampleVi;
+            document.getElementById('drawer-tip').textContent = t.tip;
+            lucide.createIcons();
+        }
+
+        function speakDrawerExample() {
+            const t = GRAMMAR_TOPICS[currentDrawerTopicIdx];
+            if (t) speakEnglishText(t.exampleEn);
+        }
+
+        // Close drawer when clicking outside panel
+        document.getElementById('topic-drawer-backdrop').addEventListener('click', (e) => {
+            if (e.target.id === 'topic-drawer-backdrop') closeTopicDrawer();
+        });
+
+        /**
+         * 5. SECTION 3: INTERACTIVE GRAMMAR LAB (3 SENTENCE ASSEMBLY CHALLENGES)
+         */
+        const LAB_CHALLENGES = [
+            {
+                tag: 'Thử thách 1 / 3 • Chuyển đổi Thì (Hiện tại hoàn thành)',
+                formula: 'S + have/has + V3 + since + Mốc QK',
+                prompt: 'Lắp ghép câu: "Tôi đã học tiếng Anh tại Compass English kể từ tháng Chín."',
+                blocks: ['I', 'have studied', 'English', 'at Compass English', 'since September.', 'studied'],
+                answer: ['I', 'have studied', 'English', 'at Compass English', 'since September.'],
+                explanation: 'Vì có mốc thời gian <strong>since September</strong> (kéo dài từ quá khứ tới hiện tại), ta dùng khối <strong>have studied</strong> (Hiện tại hoàn thành) thay vì <em>studied</em>.'
+            },
+            {
+                tag: 'Thử thách 2 / 3 • Ghép Mệnh đề Quan hệ',
+                formula: 'Danh từ (Vật) + which/that + V + O',
+                prompt: 'Lắp ghép câu: "Ứng dụng mà giải thích ngữ pháp bằng sơ đồ thì rất dễ hiểu."',
+                blocks: ['The app', 'which', 'explains grammar', 'visually', 'is very easy to understand.', 'who'],
+                answer: ['The app', 'which', 'explains grammar', 'visually', 'is very easy to understand.'],
+                explanation: 'Danh từ chỉ vật <strong>The app</strong> đi với đại từ quan hệ <strong>which</strong> (không dùng <em>who</em>).'
+            },
+            {
+                tag: 'Thử thách 3 / 3 • Đảo ngữ Nhấn mạnh với Never',
+                formula: 'Never + have/has + S + V3 + before',
+                prompt: 'Lắp ghép câu: "Chưa bao giờ tôi thấy một bản đồ ngữ pháp rõ ràng đến thế."',
+                blocks: ['Never', 'have', 'I', 'seen', 'such a clear grammar map.', 'I have'],
+                answer: ['Never', 'have', 'I', 'seen', 'such a clear grammar map.'],
+                explanation: 'Khi <strong>Never</strong> đứng đầu câu để nhấn mạnh, trợ động từ <strong>have</strong> bắt buộc đảo lên trước chủ ngữ <strong>I</strong>.'
+            }
+        ];
+
+        let currentLabIdx = 0;
+        let selectedLabIndices = [];
+
+        function selectLabChallenge(idx) {
+            currentLabIdx = idx;
+            selectedLabIndices = [];
+            [0, 1, 2].forEach(i => {
+                const tab = document.getElementById(`lab-tab-${i}`);
+                tab.className = i === idx
+                    ? 'lab-tab px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-compass-600 text-white transition-all whitespace-nowrap cursor-pointer'
+                    : 'lab-tab px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-slate-800 text-slate-300 hover:text-white transition-all whitespace-nowrap cursor-pointer';
+            });
+            document.getElementById('lab-feedback-box').classList.add('hidden');
+            renderLabStage();
+        }
+
+        function renderLabStage() {
+            const item = LAB_CHALLENGES[currentLabIdx];
+            document.getElementById('lab-challenge-tag').textContent = item.tag;
+            document.getElementById('lab-formula-pill').textContent = item.formula;
+            document.getElementById('lab-challenge-prompt').textContent = item.prompt;
+
+            const slotEl = document.getElementById('lab-assembly-slot');
+            if (selectedLabIndices.length === 0) {
+                slotEl.innerHTML = '<span class="text-xs text-slate-400 italic">Bấm các mảnh ghép bên dưới để xếp thành câu...</span>';
+            } else {
+                slotEl.innerHTML = selectedLabIndices.map(idx => `
+                    <button type="button" onclick="toggleLabBlock(${idx})"
+                        class="px-3.5 py-2 rounded-xl bg-compass-600 hover:bg-rose-600 text-white font-heading font-bold text-xs sm:text-sm shadow-xs transition-colors cursor-pointer">
+                        ${item.blocks[idx]} ×
+                    </button>
+                `).join('');
+            }
+
+            const poolEl = document.getElementById('lab-blocks-pool');
+            poolEl.innerHTML = item.blocks.map((block, idx) => {
+                const isUsed = selectedLabIndices.includes(idx);
+                return `
+                    <button type="button" onclick="toggleLabBlock(${idx})" ${isUsed ? 'disabled' : ''}
+                        class="px-4 py-2.5 rounded-xl font-heading font-bold text-xs sm:text-sm border transition-all ${isUsed
+                            ? 'bg-slate-800/40 border-slate-800 text-slate-600 cursor-not-allowed'
+                            : 'bg-slate-800 hover:bg-slate-700 border-slate-600 hover:border-amber-400 text-white cursor-pointer'}">
+                        ${block}
+                    </button>
+                `;
+            }).join('');
+        }
+
+        function toggleLabBlock(idx) {
+            const pos = selectedLabIndices.indexOf(idx);
+            if (pos > -1) {
+                selectedLabIndices.splice(pos, 1);
+            } else {
+                selectedLabIndices.push(idx);
+            }
+            document.getElementById('lab-feedback-box').classList.add('hidden');
+            renderLabStage();
+        }
+
+        function resetCurrentLab() {
+            selectedLabIndices = [];
+            document.getElementById('lab-feedback-box').classList.add('hidden');
+            renderLabStage();
+        }
+
+        function checkLabAssembly() {
+            const item = LAB_CHALLENGES[currentLabIdx];
+            const feedbackEl = document.getElementById('lab-feedback-box');
+
+            if (selectedLabIndices.length === 0) {
+                showToast('Hãy chọn các mảnh ghép trước khi kiểm tra nhé!');
+                return;
+            }
+
+            const chosen = selectedLabIndices.map(i => item.blocks[i]);
+            const isCorrect = chosen.length === item.answer.length && chosen.every((v, i) => v === item.answer[i]);
+
+            feedbackEl.classList.remove('hidden');
+            if (isCorrect) {
+                const fullSentence = item.answer.join(' ');
+                feedbackEl.className = 'mb-5 p-4 rounded-2xl border bg-emerald-500/15 border-emerald-500/40 text-emerald-100 text-xs sm:text-sm leading-relaxed animate-pop';
+                feedbackEl.innerHTML = `
+                    <div class="flex items-center justify-between gap-3 mb-1">
+                        <strong class="text-emerald-300 text-sm">Chính xác tuyệt đối!</strong>
+                        <button type="button" onclick="speakEnglishText('${escapeJs(fullSentence)}')"
+                            class="px-3 py-1 rounded-lg bg-emerald-500 text-slate-950 font-bold text-xs cursor-pointer">
+                            Nghe câu chuẩn
+                        </button>
+                    </div>
+                    <p>${item.explanation}</p>
+                `;
+                speakEnglishText(fullSentence);
+            } else {
+                feedbackEl.className = 'mb-5 p-4 rounded-2xl border bg-rose-500/15 border-rose-500/40 text-rose-100 text-xs sm:text-sm leading-relaxed animate-pop';
+                feedbackEl.innerHTML = `
+                    <strong class="text-rose-300 text-sm block mb-1">Chưa đúng trật tự công thức!</strong>
+                    <p>${item.explanation}</p>
+                    <div class="mt-2 font-mono text-xs text-amber-300">Gợi ý chuẩn: ${item.answer.join(' ')}</div>
+                `;
+            }
+        }
+
+        function nextLabChallenge() {
+            selectLabChallenge((currentLabIdx + 1) % LAB_CHALLENGES.length);
+        }
+
+        /**
+         * 6. WEB SPEECH API AUDIO & TOAST UTILITIES
+         */
+        let toastTimer = null;
+
+        function speakEnglishText(text) {
+            if (!text || !('speechSynthesis' in window)) {
+                showToast('Trình duyệt chưa hỗ trợ phát âm tự động.');
+                return;
+            }
+            try {
+                window.speechSynthesis.cancel();
+                const utter = new SpeechSynthesisUtterance(text);
+                utter.lang = 'en-US';
+                utter.rate = 0.92;
+                const voices = window.speechSynthesis.getVoices();
+                const preferred = voices.find(v => v.lang.includes('en-US') && (v.name.includes('Google') || v.name.includes('Natural') || v.name.includes('Samantha')))
+                               || voices.find(v => v.lang.includes('en-US'))
+                               || voices.find(v => v.lang.startsWith('en'));
+                if (preferred) utter.voice = preferred;
+
+                showToast(`Đang đọc: "${text}"`);
+                window.speechSynthesis.speak(utter);
+            } catch (e) {}
+        }
+
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices();
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('grammar-toast');
+            document.getElementById('grammar-toast-text').textContent = msg;
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => {
+                toast.classList.add('translate-y-24', 'opacity-0');
+            }, 2400);
+        }
+
+        function escapeJs(str) {
+            return String(str).replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/"/g, '&quot;');
+        }
+
+        // Mobile Navigation Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        });
+
+        // Escape key closes Drawer
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !document.getElementById('topic-drawer-backdrop').classList.contains('hidden')) {
+                closeTopicDrawer();
+            }
+        });
+
+        // Initial Boot
+        window.addEventListener('DOMContentLoaded', () => {
+            renderHeroDecoder();
+            renderLegoPipeline();
+            renderTopicsGrid();
+            selectLabChallenge(0);
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>
